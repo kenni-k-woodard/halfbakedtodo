@@ -35,8 +35,20 @@ todoForm.addEventListener('submit', async (e) => {
 // call displayTodos
 
 async function displayTodos() {
+    const todos = await getTodos();
     // clear the container (.innerHTML = '')
+    todosEl.textContent = '';
     // display the list of todos,
+    for (let todo of todos) {
+        const todoEl = renderTodo(todo);
+
+        todoEl.addEventListener('click', async () => {
+            await completeTodo(todo.id);
+
+            displayTodos();
+        });
+        todosEl.append(todoEl);
+    }
     // call render function, pass in state and complete handler function!
     // append to .todos
 }
