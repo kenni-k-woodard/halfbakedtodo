@@ -1,4 +1,4 @@
-export function renderTodo(todo, handleComplete) {
+export function renderTodo(todo) {
     // create a div and a p tag
     const div = document.createElement('div');
     const p = document.createElement('p');
@@ -10,7 +10,7 @@ export function renderTodo(todo, handleComplete) {
     p.textContent = todo.todo;
     // append stuff
     div.append(p);
-    // add event listener for click and call handleComplete function
+
     // return the div
     return div;
 }
